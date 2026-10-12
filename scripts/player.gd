@@ -6,12 +6,20 @@ extends CharacterBody3D
 @export var turn_speed: float = 2.5
 
 var current_speed: float = 0.0
+var current_item = null
 
 @onready var Speedometer = $"../CanvasLayer/Label"
+@onready var Item_display = $"../CanvasLayer/Label2"
 
+func _ready() -> void:
+	self.add_to_group("player")
+	
+	
 func _physics_process(delta: float) -> void:
 	# 1. Handle Steering (A/D or Left/Right arrows)
 	# We scale steering by speed so the car doesn't spin in place when stopped
+	if Input.is_action_just_pressed("use") and current_item != null:
+		use_item()
 	var steering_input := Input.get_axis("ui_left", "ui_right")
 	if steering_input != 0 and abs(current_speed) > 0.1:
 		rotation.y -= steering_input * turn_speed * (current_speed / max_speed) * delta
@@ -37,3 +45,16 @@ func _physics_process(delta: float) -> void:
 	
 	Speedometer.text = "Speed: " + str(round(current_speed*10)/10)
 	move_and_slide()
+	
+func use_item():
+	
+	print(current_item)
+	current_item = null
+	update_item()
+	
+	
+func update_item():
+	if current_item == null:
+		Item_display.text = "No Item"
+	else:
+		Item_display.text = current_item

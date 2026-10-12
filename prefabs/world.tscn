@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bgxyhuyow4q3y"]
 
 [ext_resource type="PackedScene" uid="uid://bi7idwgqr7u7x" path="res://prefabs/player.tscn" id="1_8tlfu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6be4p"]
+[ext_resource type="Texture2D" uid="uid://cv5rmvgys8epe" path="res://props/hedgehog/hedgehog.png" id="2_wwc5h"]
+[ext_resource type="PackedScene" uid="uid://deq6pmjrl0le5" path="res://prefabs/item_crate.tscn" id="3_6be4p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wwc5h"]
-panorama = SubResource("CompressedTexture2D_6be4p")
+panorama = ExtResource("2_wwc5h")
 
 [sub_resource type="Sky" id="Sky_8tlfu"]
 sky_material = SubResource("PanoramaSkyMaterial_wwc5h")
@@ -22,7 +22,15 @@ use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="Player" parent="." unique_id=432805324 instance=ExtResource("1_8tlfu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=362773032]
 environment = SubResource("Environment_iw3lg")
+
+[node name="Item_crate" parent="." unique_id=1942248720 instance=ExtResource("3_6be4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.660083, 0.52656984, -3.942655)
+
+[node name="Item_crate2" parent="." unique_id=1892019393 instance=ExtResource("3_6be4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110631466, 0.52656937, -5.1682796)
+
+[node name="Item_crate3" parent="." unique_id=2137512555 instance=ExtResource("3_6be4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.886176, 0.5265689, -3.048397)
