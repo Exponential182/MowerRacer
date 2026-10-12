@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MowerItem" format=3 uid="uid://cr8wk55icn280"]
+
+[ext_resource type="Texture2D" uid="uid://roq5v4beu67l" path="res://ui/blue_paint_icon.png" id="1_k4mg2"]
+[ext_resource type="Script" uid="uid://cyq01fr75oask" path="res://MowerItem.gd" id="2_tfutf"]
+
+[resource]
+script = ExtResource("2_tfutf")
+mower_item_icon = ExtResource("1_k4mg2")
+metadata/_custom_type_script = "uid://cyq01fr75oask"

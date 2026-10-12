@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://6552pciw0q6i"]
+
+[ext_resource type="FontFile" uid="uid://cge5as2u0peb0" path="res://ui/framdit.ttf" id="1_rqugq"]
+
+[resource]
+default_font = ExtResource("1_rqugq")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
