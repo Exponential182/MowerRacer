@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d2sbu0uyi07o8"]
+
+[ext_resource type="Texture2D" uid="uid://bvi1fk8vvlwyk" path="res://icon.svg" id="1_6k86g"]
+[ext_resource type="Script" uid="uid://cpbv0ru7n7icl" path="res://ui/main_menu/_mower_customise_item.gd" id="1_ckl8o"]
+
+[node name="_mower_customise_item" type="PanelContainer" unique_id=924756449]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ckl8o")
+
+[node name="_tex" type="TextureRect" parent="." unique_id=1933513857]
+layout_mode = 2
+texture = ExtResource("1_6k86g")
+expand_mode = 2

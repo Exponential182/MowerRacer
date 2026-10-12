@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://bch48t8b4asd5"]
+
+[ext_resource type="Theme" uid="uid://6552pciw0q6i" path="res://ui/theme.tres" id="1_g6sgr"]
+[ext_resource type="PackedScene" uid="uid://dcwnn3f4x6spo" path="res://props/hedgehog/hedgehog.blend" id="1_gn2p6"]
+[ext_resource type="Script" uid="uid://csmr5m06l2yh0" path="res://ui/main_menu/_mower_customise.gd" id="1_tb0lb"]
+[ext_resource type="StyleBox" uid="uid://bb2hplx4whifj" path="res://ui/selected_container.tres" id="2_lt0mb"]
+[ext_resource type="Texture2D" uid="uid://bssn56rur2fu8" path="res://ui/wheel_icon.png" id="5_8whgj"]
+[ext_resource type="PackedScene" uid="uid://d2sbu0uyi07o8" path="res://ui/main_menu/_mower_customise_item.tscn" id="5_dku5y"]
+[ext_resource type="Texture2D" uid="uid://cxk05e8jr2v0i" path="res://ui/brush_icon.png" id="7_v8dlw"]
+[ext_resource type="Texture2D" uid="uid://cl4qwv5fymy1y" path="res://ui/wrap_icon.png" id="8_iu76q"]
+[ext_resource type="Resource" uid="uid://dbxcki1ml1ss" path="res://moweritems/red_paint.tres" id="8_oon8k"]
+[ext_resource type="Resource" uid="uid://ds4oo6stmcvqm" path="res://moweritems/orange_paint.tres" id="9_05xxp"]
+[ext_resource type="Resource" uid="uid://cyymgoejm0ci0" path="res://moweritems/green_paint.tres" id="11_ncudd"]
+[ext_resource type="Resource" uid="uid://cr8wk55icn280" path="res://moweritems/blue_paint.tres" id="12_8br56"]
+[ext_resource type="Resource" uid="uid://dypj52wjkv627" path="res://moweritems/purple_paint.tres" id="13_2s2as"]
+[ext_resource type="Resource" uid="uid://csvgntcdqkvoe" path="res://moweritems/dots_wrap.tres" id="14_ncudd"]
+[ext_resource type="Resource" uid="uid://dn3d24gd4d18x" path="res://moweritems/lines_wrap.tres" id="15_8br56"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i5wg5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3c04x"]
+sky_material = SubResource("ProceduralSkyMaterial_i5wg5")
+
+[sub_resource type="Environment" id="Environment_joh67"]
+background_mode = 2
+sky = SubResource("Sky_3c04x")
+
+[node name="_mower_customise" type="PanelContainer" unique_id=534933414]
+offset_right = 320.0
+offset_bottom = 220.0
+size_flags_horizontal = 3
+theme = ExtResource("1_g6sgr")
+theme_override_styles/panel = ExtResource("2_lt0mb")
+script = ExtResource("1_tb0lb")
+
+[node name="Label" type="Label" parent="." unique_id=1370179893]
+layout_mode = 2
+size_flags_vertical = 1
+text = "[ENTER] Confirm"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=948479365]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1556757327]
+layout_mode = 2
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer" unique_id=1007384817]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer" unique_id=114345730]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(310, 75)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="VBoxContainer/SubViewportContainer/SubViewport" unique_id=443402706]
+
+[node name="_cam" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=1901455936]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9238795, 0.38268346, 0, -0.38268346, 0.9238795, 0.048, 1.715, 4.015)
+current = true
+
+[node name="_mesh_pivot" type="Node3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=1067380744]
+unique_name_in_owner = true
+
+[node name="hedgehog" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D/_mesh_pivot" unique_id=1843746009 instance=ExtResource("1_gn2p6")]
+
+[node name="Cube" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D/_mesh_pivot/hedgehog" index="0" unique_id=1919535668]
+visible = false
+
+[node name="Plane" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D/_mesh_pivot/hedgehog" index="1" unique_id=193553756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Plane_001" parent="VBoxContainer/SubViewportContainer/SubViewport/Node3D/_mesh_pivot/hedgehog" index="2" unique_id=352057432]
+visible = false
+
+[node name="Node" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport" unique_id=36257341]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Node" unique_id=859375585]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="VBoxContainer/SubViewportContainer/SubViewport/Node" unique_id=1381237595]
+environment = SubResource("Environment_joh67")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=376541264]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=82210142]
+layout_mode = 2
+texture = ExtResource("5_8whgj")
+
+[node name="_mower_customise_item" parent="VBoxContainer/HBoxContainer" unique_id=924756449 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+
+[node name="_mower_customise_item2" parent="VBoxContainer/HBoxContainer" unique_id=747928509 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+
+[node name="_mower_customise_item3" parent="VBoxContainer/HBoxContainer" unique_id=694936778 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=820896796]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=1859846866]
+layout_mode = 2
+texture = ExtResource("7_v8dlw")
+
+[node name="_mower_customise_item" parent="VBoxContainer/HBoxContainer2" unique_id=313815683 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("8_oon8k")
+
+[node name="_mower_customise_item2" parent="VBoxContainer/HBoxContainer2" unique_id=705536063 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("9_05xxp")
+
+[node name="_mower_customise_item4" parent="VBoxContainer/HBoxContainer2" unique_id=1031968203 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("11_ncudd")
+
+[node name="_mower_customise_item5" parent="VBoxContainer/HBoxContainer2" unique_id=1098222694 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("12_8br56")
+
+[node name="_mower_customise_item6" parent="VBoxContainer/HBoxContainer2" unique_id=1768613809 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("13_2s2as")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1053887315]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=936612120]
+layout_mode = 2
+texture = ExtResource("8_iu76q")
+
+[node name="_mower_customise_item" parent="VBoxContainer/HBoxContainer3" unique_id=747481782 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("14_ncudd")
+
+[node name="_mower_customise_item2" parent="VBoxContainer/HBoxContainer3" unique_id=1203469653 node_paths=PackedStringArray("mower_customise_menu") instance=ExtResource("5_dku5y")]
+layout_mode = 2
+focus_mode = 2
+mower_customise_menu = NodePath("../../..")
+moweritem = ExtResource("15_8br56")
+
+[node name="_press_any_button" type="RichTextLabel" parent="." unique_id=247171123]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave]Wait for Player 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="VBoxContainer/SubViewportContainer/SubViewport/Node3D/_mesh_pivot/hedgehog"]
