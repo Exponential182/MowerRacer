@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bi7idwgqr7u7x"]
+
+[ext_resource type="Script" uid="uid://55c1c20dtxo1" path="res://scripts/player.gd" id="1_72ieh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw3lg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tlfu"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="Node3D" unique_id=432805324]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=431560950]
+script = ExtResource("1_72ieh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1893060651]
+shape = SubResource("CapsuleShape3D_iw3lg")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1273098500]
+transform = Transform3D(1, 0, 0, 0, 0.85449475, 0.51946, 0, -0.51946, 0.85449475, 0, 1.8143556, 1.7828157)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D" unique_id=679554612]
+material = SubResource("StandardMaterial3D_8tlfu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2003314373]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=819772827]
+offset_right = 66.0
+offset_bottom = 39.0
