@@ -49,33 +49,36 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_02j3t")
 
-[node name="Player" type="Node3D" unique_id=432805324]
-
-[node name="Player" type="CharacterBody3D" parent="." unique_id=431560950 groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1177431395 groups=["player"]]
 script = ExtResource("1_72ieh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1893060651]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=585936059]
 shape = SubResource("SphereShape3D_6be4p")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1273098500]
-transform = Transform3D(1, 0, 0, 0, 0.85449475, 0.51946, 0, -0.51946, 0.85449475, 0, 1.8143556, 1.7828157)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=472780171]
+transform = Transform3D(1, 0, 0, 0, 0.9997426, 0.022687335, 0, -0.022687335, 0.9997426, 0, 1.8143556, 1.7828157)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Player" unique_id=679554612]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=670431519]
 material = SubResource("StandardMaterial3D_8tlfu")
 
-[node name="Plane" type="MeshInstance3D" parent="Player" unique_id=1983980354]
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=1903706155]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0, 0.6372731, 0)
 mesh = SubResource("ArrayMesh_r66lb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2003314373]
+[node name="Item_spawn_pos" type="Marker3D" parent="." unique_id=1375463047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.373549)
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=819772827]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=120841890]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1012039067]
 offset_right = 66.0
 offset_bottom = 39.0
 text = "Speed: 0"
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="CanvasLayer" unique_id=151530053]
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=653125299]
 offset_top = 25.0
 offset_right = 66.0
 offset_bottom = 64.0
 text = "No item"
+metadata/_edit_use_anchors_ = true

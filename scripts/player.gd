@@ -8,8 +8,10 @@ extends CharacterBody3D
 var current_speed: float = 0.0
 var current_item = null
 
-@onready var Speedometer = $"../CanvasLayer/Label"
-@onready var Item_display = $"../CanvasLayer/Label2"
+@onready var Speedometer = $"CanvasLayer/Label"
+@onready var Item_display = $"CanvasLayer/Label2"
+@onready var Item_spawn_position = $Item_spawn_pos
+@onready var Cube = preload("res://prefabs/cube.tscn")
 
 func _ready() -> void:
 	self.add_to_group("player")
@@ -47,7 +49,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func use_item():
-	
+	if current_item == "Cube":
+		var spawned_item = Cube.instantiate()
+		get_node("/root/world/Items").add_child(spawned_item)
+		spawned_item.position = Item_spawn_position.global_position
+		spawned_item.rotation = self.rotation
 	print(current_item)
 	current_item = null
 	update_item()
