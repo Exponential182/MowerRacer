@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bi7idwgqr7u7x" path="res://prefabs/player.tscn" id="1_8tlfu"]
 [ext_resource type="Texture2D" uid="uid://cv5rmvgys8epe" path="res://props/hedgehog/hedgehog.png" id="2_wwc5h"]
 [ext_resource type="PackedScene" uid="uid://deq6pmjrl0le5" path="res://prefabs/item_crate.tscn" id="3_6be4p"]
-[ext_resource type="PackedScene" uid="uid://bs2okaxckwnsm" path="res://prefabs/cube.tscn" id="4_4d63b"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wwc5h"]
 panorama = ExtResource("2_wwc5h")
@@ -37,6 +36,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110631466, 0.52656937, -5.
 
 [node name="Item_crate3" parent="." unique_id=2137512555 instance=ExtResource("3_6be4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.886176, 0.5265689, -3.048397)
-
-[node name="Cube" parent="." unique_id=939885659 instance=ExtResource("4_4d63b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27649403, -18)
