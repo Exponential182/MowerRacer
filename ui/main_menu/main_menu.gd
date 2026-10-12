@@ -1,9 +1,9 @@
 extends Control
 
 @onready var _ui_selector: TextureRect = $_ui_selector
-@onready var _start: Button = %_start
-@onready var _options: Button = %_options
-@onready var _quit: Button = %_quit
+@onready var _start: TextureButton = %_start
+@onready var _options: TextureButton = %_options
+@onready var _quit: TextureButton = %_quit
 
 @onready var _mower_customise_0: PanelContainer = %_mower_customise_0
 @onready var _mower_customise_1: PanelContainer = %_mower_customise_1
@@ -15,6 +15,7 @@ extends Control
 
 var selected_ui : Control
 var selected_player : int = 0
+var time := 0.0
 
 var last_menu_node : Control
 var current_menu_node : Control
@@ -76,14 +77,38 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if selected_ui:
-		var tar_pos = (selected_ui.global_position - Vector2(_ui_selector.size.x, _ui_selector.size.y/2)) + Vector2(0,selected_ui.size.y/2)
+	time += delta
 		
-		_ui_selector.position = lerp(_ui_selector.position,tar_pos,delta*10)
-
+	var update_selected : bool = false
+	if selected_ui != get_viewport().gui_get_focus_owner():
+		update_selected = true
+		
+		if selected_ui:
+			selected_ui.modulate = Color.WHITE
+			
+			var t := create_tween()
+			t.tween_property(selected_ui,"scale",Vector2.ONE,0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
+		
 	selected_ui = get_viewport().gui_get_focus_owner()
+		
+	if selected_ui and update_selected:
+		SfxManager.playfile(SfxManager.BLIP)
+		
+		selected_ui.pivot_offset = selected_ui.size/2
+			
+		var t2 := create_tween()
+		t2.tween_property(selected_ui,"scale",Vector2(1.25,1.25),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		
+		var tar_pos = (selected_ui.global_position - Vector2(_ui_selector.size.x, _ui_selector.size.y/2)) + Vector2(0,selected_ui.size.y/2)
+		var margin = Vector2i(-15,0)
+		
+		var t := create_tween()
+		t.tween_property(_ui_selector,"position",Vector2(Vector2i(tar_pos) + margin),0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-	if !selected_ui:
+	if selected_ui:
+		var mod = (((sin(time * 10)+1)/2))
+		selected_ui.modulate = lerp(Color.WHITE,Color(1.0, 1.0, 0.67, 1.0),mod)
+	else:
 		reset_focus()
 		
 	match current_menu:

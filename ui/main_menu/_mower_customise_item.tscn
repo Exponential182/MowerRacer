@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cpbv0ru7n7icl" path="res://ui/main_menu/_mower_customise_item.gd" id="1_ckl8o"]
 
 [node name="_mower_customise_item" type="PanelContainer" unique_id=924756449]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 offset_right = 40.0
 offset_bottom = 40.0
