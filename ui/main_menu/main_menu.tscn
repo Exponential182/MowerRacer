@@ -126,12 +126,12 @@ text = "©2026 Zealous Studios"
 
 [node name="_mower_select_screen" type="Control" parent="." unique_id=1629939034]
 unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 475.0
-offset_bottom = 315.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="_mower_select_screen" unique_id=1356811140]
 layout_mode = 1
@@ -140,6 +140,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="_mower_customise_0" parent="_mower_select_screen/HBoxContainer" unique_id=1450714464 instance=ExtResource("3_i5wg5")]
 unique_name_in_owner = true

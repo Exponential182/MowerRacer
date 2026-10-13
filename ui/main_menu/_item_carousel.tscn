@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxoeat5wlnu48"]
+
+[ext_resource type="Script" uid="uid://cbbypkgwwiqe5" path="res://_item_carousel.gd" id="1_o84ja"]
+[ext_resource type="Script" uid="uid://cyq01fr75oask" path="res://MowerItem.gd" id="2_5y1jm"]
+[ext_resource type="Resource" uid="uid://cr8wk55icn280" path="res://moweritems/blue_paint.tres" id="3_sh524"]
+[ext_resource type="Resource" uid="uid://cyymgoejm0ci0" path="res://moweritems/green_paint.tres" id="4_irumr"]
+[ext_resource type="Resource" uid="uid://ds4oo6stmcvqm" path="res://moweritems/orange_paint.tres" id="5_vh2m8"]
+[ext_resource type="Resource" uid="uid://dypj52wjkv627" path="res://moweritems/purple_paint.tres" id="6_7biu4"]
+[ext_resource type="Resource" uid="uid://dbxcki1ml1ss" path="res://moweritems/red_paint.tres" id="7_lcapj"]
+[ext_resource type="Resource" uid="uid://b2v2jhesj0ncn" path="res://moweritems/yellow_paint.tres" id="8_u4cfn"]
+
+[node name="_item_carousel" type="Control" unique_id=499227193]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o84ja")
+items = Array[ExtResource("2_5y1jm")]([ExtResource("3_sh524"), ExtResource("4_irumr"), ExtResource("5_vh2m8"), ExtResource("6_7biu4"), ExtResource("7_lcapj"), ExtResource("8_u4cfn")])
+slot_size = Vector2(32, 32)
+spacing = 8.0

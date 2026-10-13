@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("2_nkto1")
+mower_item_type = 1
 mower_item_icon = ExtResource("1_i24c2")
 metadata/_custom_type_script = "uid://cyq01fr75oask"

@@ -11,7 +11,8 @@ const TRANSITION_END_VOLUME := -20
 const TRANSITION_START_VOLUME := -80
 
 func _ready() -> void:
-	play_track(TRACK_1)
+	pass
+	#play_track(TRACK_1)
 
 	
 func play_track(_track):
