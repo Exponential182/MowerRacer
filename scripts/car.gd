@@ -17,7 +17,7 @@ var TOP_SPEED: float = 20.0
 var RAY_FORCE_STRENGTH: float = 20.0
 var RAY_FORCE_DAMPING: float = 8.0
 # temp
-var STEERING_TORQUE: float = 20.0
+var STEERING_TORQUE: float = 5.0
 var LINEAR_POWER: float = 8.0
 var GRIP: float = 1.0
 
@@ -62,7 +62,7 @@ func drive_rudimentary():
 	var right_dir: Vector3 = global_basis.x
 	var lateral_velocity: Vector3 = right_dir * linear_velocity.dot(right_dir)
 
-	apply_central_impulse(-lateral_velocity * GRIP)
+	apply_central_impulse(-lateral_velocity * 0.95)
 
 
 	
