@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dfjh1v6frlkpn"]
+
+[ext_resource type="Texture2D" uid="uid://c1awri0enanys" path="res://props/deHaht.png" id="1_d60ka"]
+[ext_resource type="PackedScene" uid="uid://b365ub14074na" path="res://steves_mower/mower_vehicle.tscn" id="2_vr1l6"]
+[ext_resource type="Script" uid="uid://bi8v1xg2ukif2" path="res://steves_mower/scripts/follow_camera.gd" id="4_vr1l6"]
+[ext_resource type="PackedScene" uid="uid://dcwnn3f4x6spo" path="res://props/hedgehog/hedgehog.blend" id="5_2ndmu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cw1hf"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_vr1l6"]
+sky_material = SubResource("ProceduralSkyMaterial_cw1hf")
+
+[sub_resource type="Environment" id="Environment_2ndmu"]
+background_mode = 2
+sky = SubResource("Sky_vr1l6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82vey"]
+albedo_texture = ExtResource("1_d60ka")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m4gdq"]
+
+[node name="mower_test_scene" type="Node3D" unique_id=978974613]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=890315184]
+environment = SubResource("Environment_2ndmu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1764392864]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1434861268]
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground2" type="CSGBox3D" parent="." unique_id=410140092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground3" type="CSGBox3D" parent="." unique_id=1821761564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground4" type="CSGBox3D" parent="." unique_id=609845001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground5" type="CSGBox3D" parent="." unique_id=607846645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground6" type="CSGBox3D" parent="." unique_id=1332024641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground7" type="CSGBox3D" parent="." unique_id=1798060473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground8" type="CSGBox3D" parent="." unique_id=739802123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Ground9" type="CSGBox3D" parent="." unique_id=1698258515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -50)
+material_override = SubResource("StandardMaterial3D_82vey")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="MowerVehicle" parent="." unique_id=697488158 instance=ExtResource("2_vr1l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="FollowCamera" type="Node3D" parent="." unique_id=823775917 node_paths=PackedStringArray("follow_target")]
+script = ExtResource("4_vr1l6")
+follow_target = NodePath("../MowerVehicle")
+camera_height = 3.0
+camera_distance = 10.0
+
+[node name="Pivot" type="Node3D" parent="FollowCamera" unique_id=1030853393]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="FollowCamera/Pivot" unique_id=891802613]
+
+[node name="Camera3D" type="Camera3D" parent="FollowCamera/Pivot/SpringArm3D" unique_id=2118129880]
+
+[node name="HedgehogRB" type="RigidBody3D" parent="." unique_id=1616891799]
+transform = Transform3D(-4.371139e-08, 0, -1, 0.70710677, 0.70710677, -3.090862e-08, 0.70710677, -0.70710677, -3.090862e-08, 0, 4.3688626, -4.0828557)
+
+[node name="hedgehog2" parent="HedgehogRB" unique_id=2126842094 instance=ExtResource("5_2ndmu")]
+transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HedgehogRB" unique_id=600034389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -7.1054274e-15, 0, 1, -0.5109329, 0.69126177, 2.2333595e-08)
+shape = SubResource("SphereShape3D_m4gdq")
+
+[node name="Joint3D" type="Generic6DOFJoint3D" parent="." unique_id=77737542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.63756, -3.8082967)
+node_a = NodePath("../MowerVehicle")
+node_b = NodePath("../HedgehogRB")
+angular_limit_x/upper_angle = 0.87266463
+angular_limit_x/lower_angle = -0.87266463
+angular_limit_y/upper_angle = 0.87266463
+angular_limit_y/lower_angle = -0.87266463
