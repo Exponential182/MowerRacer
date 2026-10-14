@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cis7uebgylf4w"]
+
+[ext_resource type="PackedScene" uid="uid://do3jnq5wqs2s3" path="res://prefabs/car.tscn" id="1_avh6m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnjxy"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avh6m"]
+albedo_color = Color(0.44313726, 1, 0.50980395, 1)
+
+[sub_resource type="Environment" id="Environment_avh6m"]
+ambient_light_source = 3
+ambient_light_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+
+[node name="TempGround" type="Node3D" unique_id=773601523]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1111629984]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1525379561]
+shape = SubResource("BoxShape3D_cnjxy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=121199839]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_avh6m")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D" unique_id=1792166697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0450191, -13.603905)
+size = Vector3(50, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D/CSGBox3D2" unique_id=309180164]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.895916, 0.39188576, 16.198975)
+size = Vector3(50, 1, 1)
+
+[node name="Car" parent="." unique_id=72578825 instance=ExtResource("1_avh6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=476186899]
+environment = SubResource("Environment_avh6m")

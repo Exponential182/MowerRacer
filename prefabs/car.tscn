@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://do3jnq5wqs2s3"]
+
+[ext_resource type="Script" uid="uid://dnsgnsqbu3lx3" path="res://scripts/car.gd" id="1_5tv3e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avh6m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avh6m"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="Car" type="RigidBody3D" unique_id=72578825]
+physics_material_override = SubResource("PhysicsMaterial_avh6m")
+angular_damp = 3.5
+script = ExtResource("1_5tv3e")
+
+[node name="collider" type="CollisionShape3D" parent="." unique_id=566734688]
+visible = false
+disabled = true
+
+[node name="car" type="CSGBox3D" parent="." unique_id=1328652760]
+size = Vector3(1, 0.3, 2)
+material = SubResource("StandardMaterial3D_avh6m")
+
+[node name="raycasts" type="Node3D" parent="car" unique_id=1790309321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="front_left_cast" type="RayCast3D" parent="car/raycasts" unique_id=673986274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
+target_position = Vector3(0, -1.2, 0)
+
+[node name="front_right_cast" type="RayCast3D" parent="car/raycasts" unique_id=1177124871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
+target_position = Vector3(0, -1.2, 0)
+
+[node name="rear_left_cast" type="RayCast3D" parent="car/raycasts" unique_id=1785494010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1)
+target_position = Vector3(0, -1.2, 0)
+
+[node name="rear_right_cast" type="RayCast3D" parent="car/raycasts" unique_id=2136201799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1)
+target_position = Vector3(0, -1.2, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="car" unique_id=248248502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.9)
+size = Vector3(1, 0.2, 0.2)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1688724124]
+transform = Transform3D(1, 0, 0, 0, 0.9848076, 0.17364816, 0, -0.17364816, 0.9848076, 0, 1, 2)
