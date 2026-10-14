@@ -18,6 +18,8 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	if self.position.y < -10:
+		self.position = Vector3(0,5,0)
 	# 1. Handle Steering (A/D or Left/Right arrows)
 	# We scale steering by speed so the car doesn't spin in place when stopped
 	if Input.is_action_just_pressed("use") and current_item != null:
