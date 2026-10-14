@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b6xtumi060qm8"]
+
+[ext_resource type="Shader" uid="uid://mc6l5aupy7qf" path="res://vertex.gdshader" id="1_ynj28"]
+[ext_resource type="Texture2D" uid="uid://b20apfe486jk0" path="res://ui/pedastil/pedastil.png" id="2_1o4l7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ynj28")
+shader_parameter/affine_mapping = true
+shader_parameter/albedo = ExtResource("2_1o4l7")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(128, 128)

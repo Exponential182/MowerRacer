@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://ef6gu71otr4w"]
+
+[ext_resource type="Theme" uid="uid://6552pciw0q6i" path="res://ui/theme.tres" id="1_uhj5c"]
+[ext_resource type="Script" uid="uid://bensiacostgug" path="res://ui/main_menu/main_menu.gd" id="2_mu8pm"]
+[ext_resource type="Texture2D" uid="uid://b0xvud5x4svir" path="res://ui/play_icon.png" id="3_6mijq"]
+[ext_resource type="PackedScene" uid="uid://bch48t8b4asd5" path="res://ui/main_menu/_mower_customise.tscn" id="3_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://bvi1fk8vvlwyk" path="res://icon.svg" id="3_omy8q"]
+[ext_resource type="Texture2D" uid="uid://dh0e6mb5q1or1" path="res://ui/main_menu/main_menu_splash.png" id="3_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://w1dt6dvdso77" path="res://ui/options_icon.png" id="4_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://b6oln34h7k8ge" path="res://ui/ui_selector.png" id="5_3c04x"]
+[ext_resource type="Texture2D" uid="uid://hcfciwxed5el" path="res://ui/quit_icon.png" id="5_4e78x"]
+[ext_resource type="Texture2D" uid="uid://dpuwcsbtjvc6d" path="res://ui/main_menu/splash_lawnmower.png" id="10_s4pem"]
+[ext_resource type="Script" uid="uid://b0ves8c51mmtp" path="res://ui/main_menu/_lawnmower.gd" id="11_xio0d"]
+[ext_resource type="Texture2D" uid="uid://bujnalf0thkma" path="res://ui/main_menu/grass_blade.png" id="12_xio0d"]
+
+[sub_resource type="Curve" id="Curve_xio0d"]
+_data = [Vector2(0, 0.78888893), 0.0, 1.1761906, 0, 0, Vector2(0.21862349, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.1345685, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qao3l"]
+curve = SubResource("Curve_xio0d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tf5ef"]
+particle_flag_disable_z = true
+direction = Vector3(-1, -1, 1)
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 600.0
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_qao3l")
+
+[node name="main_menu" type="Control" unique_id=981688189]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uhj5c")
+script = ExtResource("2_mu8pm")
+
+[node name="_title_screen" type="Control" parent="." unique_id=844285257]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="_title_screen" unique_id=523514790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w2r0d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="_title_screen" unique_id=1976320013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -82.5
+offset_right = 103.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="_title_screen/VBoxContainer" unique_id=2066968731]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4745098)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]Mower Racer™
+ "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="_start" type="TextureButton" parent="_title_screen/VBoxContainer" unique_id=44094822]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_6mijq")
+
+[node name="_options" type="TextureButton" parent="_title_screen/VBoxContainer" unique_id=887949456]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_w2r0d")
+
+[node name="_quit" type="TextureButton" parent="_title_screen/VBoxContainer" unique_id=232936636]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_4e78x")
+
+[node name="Label" type="Label" parent="_title_screen" unique_id=1614100264]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -19.0
+offset_right = 81.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "©2026 Zealous Studios"
+
+[node name="_mower_select_screen" type="Control" parent="." unique_id=1629939034]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="_mower_select_screen" unique_id=1356811140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="_mower_customise_0" parent="_mower_select_screen/HBoxContainer" unique_id=1450714464 instance=ExtResource("3_i5wg5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="_mower_customise_1" parent="_mower_select_screen/HBoxContainer" unique_id=140224412 instance=ExtResource("3_i5wg5")]
+unique_name_in_owner = true
+layout_mode = 2
+player = 1
+
+[node name="_course_select_screen" type="Control" parent="." unique_id=1817523599]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 475.0
+offset_bottom = 315.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="_course_select_screen" unique_id=1737882423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -20.0
+offset_right = 52.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="_course_select_screen/VBoxContainer" unique_id=1910738347]
+layout_mode = 2
+text = "Select Course"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="_course_select_screen/VBoxContainer" unique_id=833084673]
+layout_mode = 2
+columns = 3
+
+[node name="_course_select_default_focus" type="TextureRect" parent="_course_select_screen/VBoxContainer/GridContainer" unique_id=308913612]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+texture = ExtResource("3_omy8q")
+
+[node name="TextureRect2" type="TextureRect" parent="_course_select_screen/VBoxContainer/GridContainer" unique_id=1727206510]
+layout_mode = 2
+focus_mode = 2
+texture = ExtResource("3_omy8q")
+
+[node name="TextureRect3" type="TextureRect" parent="_course_select_screen/VBoxContainer/GridContainer" unique_id=931273975]
+layout_mode = 2
+focus_mode = 2
+texture = ExtResource("3_omy8q")
+
+[node name="_ui_selector" type="TextureRect" parent="." unique_id=777907078]
+layout_mode = 0
+offset_right = 11.0
+offset_bottom = 26.0
+texture = ExtResource("5_3c04x")
+stretch_mode = 3
+
+[node name="_lawnmower" type="Sprite2D" parent="." unique_id=1027187993]
+position = Vector2(33, 241)
+texture = ExtResource("10_s4pem")
+script = ExtResource("11_xio0d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="_lawnmower" unique_id=206513592]
+position = Vector2(-33, 25)
+amount = 40
+texture = ExtResource("12_xio0d")
+process_material = SubResource("ParticleProcessMaterial_tf5ef")

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://77ckpjgf83bm"]
+
+[ext_resource type="Shader" uid="uid://mc6l5aupy7qf" path="res://vertex.gdshader" id="1_o17hk"]
+[ext_resource type="Texture2D" uid="uid://cv5rmvgys8epe" path="res://props/hedgehog/hedgehog.png" id="2_ahciw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_o17hk")
+shader_parameter/affine_mapping = true
+shader_parameter/albedo = ExtResource("2_ahciw")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(96, 96)

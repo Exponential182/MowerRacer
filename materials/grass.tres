@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d1slvo7f0mho0"]
+
+[ext_resource type="Shader" uid="uid://mc6l5aupy7qf" path="res://vertex.gdshader" id="1_322h8"]
+[ext_resource type="Texture2D" uid="uid://bg6fwj5rjudqv" path="res://ui/pedastil/grass.png" id="2_u61pb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_322h8")
+shader_parameter/affine_mapping = true
+shader_parameter/albedo = ExtResource("2_u61pb")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(128, 128)

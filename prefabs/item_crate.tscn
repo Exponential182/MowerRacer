@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://deq6pmjrl0le5"]
+
+[ext_resource type="Script" uid="uid://dqp1k5ub85emv" path="res://scripts/item_crate.gd" id="1_3jry8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw3lg"]
+
+[node name="Item_crate" type="Node3D" unique_id=1942248720]
+script = ExtResource("1_3jry8")
+
+[node name="Mesh" type="CSGBox3D" parent="." unique_id=1576240799]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=778020618]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1537122691]
+shape = SubResource("BoxShape3D_iw3lg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
